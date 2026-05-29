@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Mock Interview Coach</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="sidebar">
+        <div>
+          <p class="eyebrow">AI Interview Simulator</p>
+          <h1>Mock Interview Coach</h1>
+          <p class="intro">Practice a tailored interview built from your profile, resume, and job description.</p>
+        </div>
+
+        <section class="status-panel">
+          <h2>Progress</h2>
+          <ol id="progressList">
+            <li class="active">Onboarding</li>
+            <li>Resume</li>
+            <li>Job Description</li>
+            <li>Interview</li>
+            <li>Report</li>
+          </ol>
+        </section>
+
+        <button class="secondary-button" id="resetBtn" type="button">Reset interview</button>
+      </aside>
+
+      <section class="chat-panel">
+        <div class="chat-header">
+          <div>
+            <p class="eyebrow">Live Session</p>
+            <h2 id="sessionTitle">Candidate Onboarding</h2>
+          </div>
+          <div class="header-actions">
+            <span id="apiStatus" class="pill">Ready</span>
+            <button id="voiceToggleBtn" class="tool-button" type="button" title="Turn voice on or off" aria-pressed="true">Voice on</button>
+            <button id="replayBtn" class="tool-button" type="button" title="Replay the latest bot question">Replay</button>
+            <button id="micBtn" class="tool-button" type="button" title="Answer with microphone" aria-pressed="false">Mic</button>
+          </div>
+        </div>
+
+        <div id="messages" class="messages" aria-live="polite"></div>
+
+        <form id="chatForm" class="composer">
+          <input id="textInput" type="text" autocomplete="off" placeholder="Type your answer...">
+          <button id="sendBtn" type="submit">Send</button>
+        </form>
+
+        <form id="uploadForm" class="upload-form hidden">
+          <label>
+            <span id="uploadLabel">Upload file</span>
+            <input id="fileInput" type="file" accept=".pdf,.docx,.txt">
+          </label>
+          <textarea id="jdText" class="hidden" rows="6" placeholder="Paste job description here..."></textarea>
+          <button id="uploadBtn" type="submit">Continue</button>
+        </form>
+      </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  </body>
+</html>
